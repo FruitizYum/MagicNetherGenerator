@@ -1,0 +1,140 @@
+# Config file for MagicNetherGenerator add-on Version ${version}
+
+# Disabled Game Mode Addons
+# MagicNetherGenerator will not work in these game modes
+disabled-gamemodes: []
+#- SkyGrid
+
+# Disables custom generation if all island members are offline
+offline-generation: false
+
+# If physics should be used when placing a block.
+# using physics allow certain redstone machanics to work,
+# but might have unwanted side effects
+use-physics: false
+
+# The range in blocks that an island member has to be in
+# to make the generator generate "custom" blocks
+working-range: 0
+
+# Default Tiers
+# Each tier must contain:
+#      min-level: island level (integer) | -1 will mean that this level will be the only level that will be applied. | First level will be always selected
+#      name: String that will be displayed in commands
+#      blocks: List of Minecraft Materials and chance of getting it.
+# Note: You can use decimals for chances and the total chances for your tier do not have to add to 100. The percentages will be calculated from the total for the tier.
+tiers:
+  default:
+    min-level: 0
+    name: "Netherrack Level"
+    blocks:
+      NETHERRACK: 89
+      SOUL_SAND: 10
+      GRAVEL: 1
+  tier1:
+    min-level: 150
+    name: "Blocks Level"
+    blocks:
+      NETHERRACK: 60
+      BASALT: 5
+      BLACKSTONE: 5
+      NETHER_BRICKS: 5
+      SOUL_SAND: 7
+      SOUL_SOIL: 8
+      GRAVEL: 10
+
+
+
+
+  tier2:
+    min-level: 500
+    name: "Nylium Level"
+    blocks:
+      NETHERRACK: 35
+      BASALT: 5
+      BLACKSTONE: 5
+      NETHER_BRICKS: 5
+      SOUL_SOIL: 10
+      SOUL_SAND: 10
+      GRAVEL: 5
+      CRIMSON_NYLIUM: 5
+      WARPED_NYLIUM: 5
+
+  tier3:
+    min-level: 1000
+    name: "Quartz Level"
+    blocks:
+      NETHERRACK: 35
+      BASALT: 5
+      BLACKSTONE: 5
+      NETHER_BRICKS: 5
+      SOUL_SOIL: 10
+      SOUL_SAND: 10
+      GRAVEL: 5
+      CRIMSON_NYLIUM: 5
+      WARPED_NYLIUM: 5
+      GLOWSTONE: 5
+      NETHER_QUARTZ_ORE: 5
+
+  tier4:
+    min-level: 2500
+    name: "Nether Gold Level"
+    blocks:
+      NETHERRACK: 35
+      BASALT: 5
+      BLACKSTONE: 5
+      NETHER_BRICKS: 5
+      SOUL_SOIL: 10
+      SOUL_SAND: 10
+      GRAVEL: 5
+      CRIMSON_NYLIUM: 5
+      WARPED_NYLIUM: 5
+      GLOWSTONE: 5
+      NETHER_QUARTZ_ORE: 5
+      NETHER_GOLD_ORE: 5
+
+  tier5:
+    min-level: 5000
+    name: "Ancient Debris Level"
+    blocks:
+      NETHERRACK: 35
+      BASALT: 5
+      BLACKSTONE: 5
+      NETHER_BRICKS: 5
+      SOUL_SOIL: 10
+      SOUL_SAND: 10
+      GRAVEL: 5
+      CRIMSON_NYLIUM: 5
+      WARPED_NYLIUM: 5
+      GLOWSTONE: 5
+      NETHER_QUARTZ_ORE: 5
+      NETHER_GOLD_ORE: 5
+      ANCIENT_DEBRIS: 5
+
+
+
+
+# GameMode differences
+# List any blocks that have a different value in a specific GameModes
+# If a tiers is not listed, the default value will be used
+# There can be added more tiers specified only for this game mode.
+# Tiers cannot be removed but can overwrite their values.
+gamemodes:
+  SkyGrid:
+    default:
+      min-level: -1
+      name: "Ancient Debris Level"
+      blocks:
+        NETHERRACK: 35
+        BASALT: 5
+        BLACKSTONE: 5
+        NETHER_BRICKS: 5
+        SOUL_SOIL: 10
+        SOUL_SAND: 10
+        GRAVEL: 5
+        CRIMSON_NYLIUM: 5
+        WARPED_NYLIUM: 5
+        GLOWSTONE: 5
+        NETHER_QUARTZ_ORE: 5
+        NETHER_GOLD_ORE: 5
+        ANCIENT_DEBRIS: 5
