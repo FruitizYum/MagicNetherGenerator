@@ -8,6 +8,7 @@ import world.bentobox.bentobox.api.user.User;
 import world.bentobox.magicnethergenerator.NetherGeneratorAddon;
 
 
+
 /**
  * This class manage main Magic Nether generator command, that just shows help message.
  */
