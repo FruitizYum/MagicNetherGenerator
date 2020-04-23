@@ -42,8 +42,8 @@ public class NetherGeneratorMainCommand extends CompositeCommand
         this.setPermission("nethergenerator");
         this.setDescription("nethergenerator.commands.main.description");
 
-        new CurrentLevelCommand(this.getAddon(), this);
-        new AllLevelsCommand(this.getAddon(), this);
+        //new CurrentLevelCommand(this.getAddon(), this);
+        //new AllLevelsCommand(this.getAddon(), this);
     }
 
 

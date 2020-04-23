@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6173a872-a8bf-4869-94be-206c892ae8bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_13_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_15_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_14_4_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_2_R0_1_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_23.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MagicNetherGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MagicNetherGenerator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/world/bentobox/magicnethergenerator/commands/NetherGeneratorMainCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/bentobox/magicnethergenerator/commands/NetherGeneratorMainCommand.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -50,8 +44,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/world/bentobox/magicnethergenerator/commands/NetherGeneratorMainCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-313">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="416">
+              <caret line="45" column="10" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,6 +161,13 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/world/bentobox/magicnethergenerator/commands/NetherGeneratorMainCommand.java" />
       </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="printErrorStackTraces" value="true" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="MavenProjectNavigator">
@@ -292,6 +293,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -305,6 +307,38 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="magicnethergenerator [test]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="test" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Maven.magicnethergenerator [test]" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -316,7 +350,7 @@
       <option name="presentableId" value="Default" />
       <updated>1587588664348</updated>
       <workItem from="1587588667296" duration="332000" />
-      <workItem from="1587590373416" duration="17924000" />
+      <workItem from="1587590373416" duration="18978000" />
     </task>
     <task id="LOCAL-00001" summary="Updated ReadMe, fixed addon.yml">
       <created>1587594674467</created>
@@ -346,14 +380,22 @@
       <option name="project" value="LOCAL" />
       <updated>1587612727413</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Updated bukkit and spigot dependencies to allow for Material.Honey_block&#10;returned model version to working">
+      <created>1587614651768</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1587614651768</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18256000" />
+    <option name="totallyTimeSpent" value="19310000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3139659" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -365,7 +407,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.14734562" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -393,7 +435,8 @@
     <MESSAGE value="Added config to allow for access to all non-renewable nether blocks. &#10;Percentage Values will need to be changed at a later date." />
     <MESSAGE value="added dependencies, copied and modified command code, wrote logic to check for and spawn blocks in generator, imported most code from MagicCobbleGen Addon" />
     <MESSAGE value="Fixed Version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Version" />
+    <MESSAGE value="Updated bukkit and spigot dependencies to allow for Material.Honey_block&#10;returned model version to working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated bukkit and spigot dependencies to allow for Material.Honey_block&#10;returned model version to working" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -506,8 +549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/world/bentobox/magicnethergenerator/commands/NetherGeneratorMainCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-313">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="416">
+          <caret line="45" column="10" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
