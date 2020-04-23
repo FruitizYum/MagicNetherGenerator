@@ -1,0 +1,244 @@
+package world.bentobox.magicnethergenerator;
+
+import org.bukkit.Bukkit;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.bukkit.Material;
+import world.bentobox.bentobox.api.addons.Addon;
+import world.bentobox.bentobox.api.flags.Flag;
+import world.bentobox.bentobox.hooks.VaultHook;
+import world.bentobox.level.Level;
+import world.bentobox.magicnethergenerator.commands.NetherGeneratorMainCommand;
+import world.bentobox.magicnethergenerator.config.Settings;
+import world.bentobox.magicnethergenerator.listeners.MainGeneratorListener;
+import world.bentobox.magicnethergenerator.tasks.MagicGenerator;
+
+
+/**
+ * Main addon Class. It starts all processes so addon could properly work.
+ * @author BONNe
+ */
+public class NetherGeneratorAddon extends Addon {
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onLoad() {
+        super.onLoad();
+//		// Save default config.yml
+        this.saveDefaultConfig();
+        // Load Addon Settings
+        this.settings = new Settings(this);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onEnable() {
+        // Check if addon is not disabled before.
+        if (this.getState().equals(State.DISABLED)) {
+            Bukkit.getLogger().severe("Magic Nether Generator Addon is not available or disabled!");
+            return;
+        }
+
+        List<String> hookedGameModes = new ArrayList<>();
+
+        getPlugin().getAddonsManager().getGameModeAddons().stream()
+                .filter(g -> !settings.getDisabledGameModes().contains(g.getDescription().getName()))
+                .forEach(g -> {
+                    if (g.getPlayerCommand().isPresent())
+                    {
+                        new NetherGeneratorMainCommand(this, g.getPlayerCommand().get());
+                        this.hooked = true;
+
+                        hookedGameModes.add(g.getDescription().getName());
+                    }
+                });
+
+        if (this.hooked) {
+            this.netherGeneratorManager = new NetherGeneratorManager(this);
+            this.netherGeneratorManager.addGameModes(hookedGameModes);
+            this.generator = new MagicGenerator(this);
+
+            // Try to find Level addon and if it does not exist, display a warning
+
+            Optional<Addon> level = this.getAddonByName("Level");
+
+            if (!level.isPresent()) {
+                this.logWarning("Level add-on not found so Magic Nether Generator will not work correctly!");
+                this.levelAddon = null;
+            }
+            else {
+                this.levelAddon = (Level) level.get();
+            }
+
+            Optional<VaultHook> vault = this.getPlugin().getVault();
+
+            if (!vault.isPresent() || !vault.get().hook()) {
+                this.vaultHook = null;
+                this.logWarning("Economy plugin not found so money options will not work!");
+            }
+            else {
+                this.vaultHook = vault.get();
+            }
+
+            // Register the listener.
+            this.registerListener(new MainGeneratorListener(this));
+
+            // Register Flags
+            flag = new Flag.Builder("MAGIC_NETHER_GENERATOR", Material.DIAMOND_PICKAXE)
+                    .type(Flag.Type.SETTING)
+                    .defaultSetting(true)
+                    .addon(this)
+                    .build();
+            getPlugin().getFlagsManager().registerFlag(flag);
+
+            // Register Request Handlers
+//			this.registerRequestHandler(REQUEST_HANDLER);
+
+            // Register placeholders
+            registerPlaceholders();
+        } else {
+            this.logError("Magic Nether Generator could not hook into any GameMode so will not do anything!");
+            this.setState(State.DISABLED);
+        }
+    }
+
+    /**
+     * Registers the placeholders
+     * @since 1.9.0
+     */
+    private void registerPlaceholders() {
+        getPlugin().getAddonsManager().getGameModeAddons().stream()
+                .filter(g -> !settings.getDisabledGameModes().contains(g.getDescription().getName()))
+                .forEach(g -> {
+                    // Register placeholders
+                    getPlugin().getPlaceholdersManager().registerPlaceholder(this,
+                            g.getDescription().getName().toLowerCase() + "_island_generator_tier",
+                            user -> {
+                                long level = isLevelProvided() ? 0L : getLevelAddon().getIslandLevel(g.getOverWorld(), user.getUniqueId());
+                                Settings.GeneratorTier tier = getManager().getGeneratorTier(level, user.getWorld());
+                                return tier != null ? tier.getName() : "";
+                            });
+                });
+    }
+
+    /**
+     * Executes code when disabling the addon.
+     */
+    @Override
+    public void onDisable() {
+        // Do some stuff...
+    }
+
+    /**
+     * Executes code when reloading the addon.
+     */
+    @Override
+    public void onReload() {
+        super.onReload();
+
+        if (this.hooked) {
+            this.settings = new Settings(this);
+            this.getLogger().info("Magic Nether Generator addon reloaded.");
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // Section: Getters
+    // ---------------------------------------------------------------------
+
+    /**
+     * This method returns the settings object.
+     * @return the settings object.
+     */
+    public Settings getSettings() {
+        return this.settings;
+    }
+
+    /**
+     * This method returns Magic Generator.
+     * @return Magic Generator object.
+     */
+    public MagicGenerator getGenerator() {
+        return this.generator;
+    }
+
+    /**
+     * This method returns nether manager.
+     * @return Nether Generator Manager
+     */
+    public NetherGeneratorManager getManager() {
+        return this.netherGeneratorManager;
+    }
+
+    /**
+     * This method returns the levelAddon object.
+     * @return the levelAddon object.
+     */
+    public Level getLevelAddon() {
+        return this.levelAddon;
+    }
+
+    /**
+     * This method returns the levelProvided object.
+     * @return the levelProvided object.
+     */
+    public boolean isLevelProvided() {
+        return levelAddon != null;
+    }
+
+    /**
+     * Returns the Flag that allows players to toggle on/off the Magic Nether Generator on their islands.
+     * @return the Flag that allows players to toggle on/off the Magic Nether Generator on their islands.
+     * @since 1.9.0
+     */
+    public Flag getFlag() {
+        return flag;
+    }
+
+
+    // ---------------------------------------------------------------------
+    // Section: Variables
+    // ---------------------------------------------------------------------
+
+    /**
+     * Variable holds settings object.
+     */
+    private Settings settings;
+
+    /**
+     * Variable indicates if addon is hooked in any game mode
+     */
+    private boolean hooked;
+
+    /**
+     * Variable holds Nether Generator Manager object.
+     */
+    private NetherGeneratorManager netherGeneratorManager;
+
+    /**
+     * Variable holds MagicGenerator object.
+     */
+    private MagicGenerator generator;
+
+    /**
+     * VaultHook that process economy.
+     */
+    private VaultHook vaultHook;
+
+    /**
+     * Level addon.
+     */
+    private Level levelAddon;
+
+    /**
+     * Flag that toggles on/off the Magic Nether Generator.
+     * @since 1.9.0
+     */
+    private Flag flag;
+}

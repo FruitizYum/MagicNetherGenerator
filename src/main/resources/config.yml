@@ -43,9 +43,6 @@ tiers:
       SOUL_SOIL: 8
       GRAVEL: 10
 
-
-
-
   tier2:
     min-level: 500
     name: "Nylium Level"
@@ -110,9 +107,6 @@ tiers:
       NETHER_QUARTZ_ORE: 5
       NETHER_GOLD_ORE: 5
       ANCIENT_DEBRIS: 5
-
-
-
 
 # GameMode differences
 # List any blocks that have a different value in a specific GameModes
