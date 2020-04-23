@@ -13,15 +13,15 @@ authors:
 softdepend: AcidIsland, BSkyBlock, CaveBlock, SkyGrid, Level
 
 permissions:
-  bskyblock.stonegenerator:
+  bskyblock.nethergenerator:
     description: Let the player use the '/island nethergen' command
     default: true
-  acidisland.stonegenerator:
+  acidisland.nethergenerator:
     description: Let the player use the '/ai nethergen' command
     default: true
-  caveblock.stonegenerator:
+  caveblock.nethergenerator:
     description: Let the player use the '/cave nethergen' command
     default: true
-  skygrid.stonegenerator:
+  skygrid.nethergenerator:
     description: Let the player use the '/skygrid nethergen' command
     default: true
