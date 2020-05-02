@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: world.bentobox:level:2.0.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/world/bentobox/level/2.0.0-SNAPSHOT/level-2.0.0-20200422.002728-7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/world/bentobox/level/2.0.0-SNAPSHOT/level-2.0.0-20200501.234713-8.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/world/bentobox/level/2.0.0-SNAPSHOT/level-2.0.0-20200422.002728-7-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/world/bentobox/level/2.0.0-SNAPSHOT/level-2.0.0-20200501.234713-8-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/world/bentobox/level/2.0.0-SNAPSHOT/level-2.0.0-20200422.002728-7-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/world/bentobox/level/2.0.0-SNAPSHOT/level-2.0.0-20200501.234713-8-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

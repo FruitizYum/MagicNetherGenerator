@@ -39,15 +39,15 @@ tiers:
       BASALT: 5
       BLACKSTONE: 5
       NETHER_BRICKS: 5
-      SOUL_SAND: 7
-      SOUL_SOIL: 8
+      SOUL_SAND: 10
+      SOUL_SOIL: 5
       GRAVEL: 10
 
   tier2:
     min-level: 500
     name: "Nylium Level"
     blocks:
-      NETHERRACK: 35
+      NETHERRACK: 50
       BASALT: 5
       BLACKSTONE: 5
       NETHER_BRICKS: 5
@@ -64,7 +64,7 @@ tiers:
       NETHERRACK: 35
       BASALT: 5
       BLACKSTONE: 5
-      NETHER_BRICKS: 5
+      NETHER_BRICKS: 10
       SOUL_SOIL: 10
       SOUL_SAND: 10
       GRAVEL: 5
@@ -94,7 +94,7 @@ tiers:
     min-level: 5000
     name: "Ancient Debris Level"
     blocks:
-      NETHERRACK: 35
+      NETHERRACK: 25
       BASALT: 5
       BLACKSTONE: 5
       NETHER_BRICKS: 5
@@ -105,7 +105,7 @@ tiers:
       WARPED_NYLIUM: 5
       GLOWSTONE: 5
       NETHER_QUARTZ_ORE: 5
-      NETHER_GOLD_ORE: 5
+      NETHER_GOLD_ORE: 10
       ANCIENT_DEBRIS: 5
 
 # GameMode differences
@@ -119,7 +119,7 @@ gamemodes:
       min-level: -1
       name: "Ancient Debris Level"
       blocks:
-        NETHERRACK: 35
+        NETHERRACK: 30
         BASALT: 5
         BLACKSTONE: 5
         NETHER_BRICKS: 5

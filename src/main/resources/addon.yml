@@ -1,5 +1,5 @@
 name: MagicNetherGenerator
-main: world.bentobox.magicnethergenerator.MagicNetherGeneratorAddon
+main: world.bentobox.magicnethergenerator.NetherGeneratorAddon
 version: ${version}${build.number}
 repository: 'BentoBoxWorld/MagicNetherGenerator'
 metrics: true
