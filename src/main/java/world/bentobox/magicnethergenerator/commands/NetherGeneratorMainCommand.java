@@ -1,10 +1,10 @@
 package world.bentobox.magicnethergenerator.commands;
 
+import java.util.List;
+
 import world.bentobox.bentobox.api.commands.CompositeCommand;
 import world.bentobox.bentobox.api.user.User;
 import world.bentobox.magicnethergenerator.NetherGeneratorAddon;
-
-import java.util.List;
 
 
 
@@ -21,7 +21,7 @@ public class NetherGeneratorMainCommand extends CompositeCommand
      */
     public NetherGeneratorMainCommand(NetherGeneratorAddon addon, CompositeCommand cmd)
     {
-        super(addon, cmd, "generator");
+        super(addon, cmd, "nethergen");
     }
 
 
@@ -41,7 +41,7 @@ public class NetherGeneratorMainCommand extends CompositeCommand
         this.setPermission("nethergenerator");
         this.setDescription("nethergenerator.commands.main.description");
 
-        new CurrentLevelCommand(this.getAddon(), this);
+        //new CurrentLevelCommand(this.getAddon(), this);
         new AllLevelsCommand(this.getAddon(), this);
     }
 
