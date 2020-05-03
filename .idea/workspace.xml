@@ -92,8 +92,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/world/bentobox/magicnethergenerator/listeners/MainGeneratorListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1547">
-              <caret line="365" column="16" selection-start-line="365" selection-start-column="16" selection-end-line="365" selection-end-column="16" />
+            <state relative-caret-position="425">
+              <caret line="148" column="47" selection-start-line="148" selection-start-column="47" selection-end-line="148" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -166,6 +166,7 @@
       <find>gener</find>
       <find>getadd</find>
       <find>plugin</find>
+      <find>logg</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -426,7 +427,7 @@
       <workItem from="1587660379323" duration="811000" />
       <workItem from="1587661220565" duration="3737000" />
       <workItem from="1587694529820" duration="5635000" />
-      <workItem from="1588401982664" duration="16354000" />
+      <workItem from="1588401982664" duration="18210000" />
     </task>
     <task id="LOCAL-00001" summary="Updated ReadMe, fixed addon.yml">
       <created>1587594674467</created>
@@ -491,11 +492,18 @@
       <option name="project" value="LOCAL" />
       <updated>1588439235650</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added working block break and replace functionality&#10;Fixed bug in which all faces would not be checked on block break">
+      <created>1588470689204</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1588470689204</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47128000" />
+    <option name="totallyTimeSpent" value="48984000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -508,7 +516,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2260128" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -594,7 +601,8 @@
     <MESSAGE value="Fixed addon.yml to reflect proper permissions&#10;Main Command is still broken, uncommented broken lines" />
     <MESSAGE value="Commented out line preventing compiling. &#10;Increased version in hopes bentobox would see and load plugin on server(still does not)" />
     <MESSAGE value="Updated version to more correct version.&#10;Changed addon.yml to reference correct addon file.&#10;Fixed some numbers in config tiers." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated version to more correct version.&#10;Changed addon.yml to reference correct addon file.&#10;Fixed some numbers in config tiers." />
+    <MESSAGE value="Added working block break and replace functionality&#10;Fixed bug in which all faces would not be checked on block break" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added working block break and replace functionality&#10;Fixed bug in which all faces would not be checked on block break" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/world/bentobox/magicnethergenerator/config/Settings.java">
@@ -723,8 +731,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/world/bentobox/magicnethergenerator/listeners/MainGeneratorListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="365" column="16" selection-start-line="365" selection-start-column="16" selection-end-line="365" selection-end-column="16" />
+        <state relative-caret-position="425">
+          <caret line="148" column="47" selection-start-line="148" selection-start-column="47" selection-end-line="148" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
