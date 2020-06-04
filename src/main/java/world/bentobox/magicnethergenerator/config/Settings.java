@@ -44,6 +44,11 @@ public class Settings
 
         this.workingRange = addon.getConfig().getInt("working-range", 0);
 
+        this.material1 = addon.getConfig().getString("block-one", "HONEY_BLOCK");
+        this.material2 = addon.getConfig().getString("block-two", "SPONGE");
+
+        this.spawnDelay = addon.getConfig().getLong("tick-delay" , 20);
+
         // Reads Generator Tiers
         if (addon.getConfig().isSet("tiers"))
         {
@@ -165,6 +170,29 @@ public class Settings
     public int getWorkingRange() {
         return workingRange;
     }
+
+    /**
+     * returns the first material that needs to be placed to make the generator work.
+     *
+     * @return material1
+     */
+    public String getMaterial1() { return material1; }
+
+
+    /**
+     * returns the second material that needs to be placed to make the generator work.
+     *
+     * @return material2
+     */
+    public String getMaterial2() { return material2; }
+
+
+    /**
+     * returns the delay before spawning a new block after the current block is removed
+     *
+     * @return spawnDelay
+     */
+    public long getSpawnDelay() { return spawnDelay; }
 
     // ---------------------------------------------------------------------
     // Section: Private object
@@ -320,4 +348,24 @@ public class Settings
      * Integer to determine the working range of a generator
      */
     private int workingRange;
+
+    /**
+     * String to determine generator material 1
+     */
+    private String material1;
+
+    /**
+     * String to determine generator material 2
+     */
+    private String material2;
+
+    /**
+     * Long to stipulate delay before spawning new block
+     */
+
+    private long spawnDelay;
+
+
+
+
 }

@@ -17,6 +17,18 @@ use-physics: false
 # to make the generator generate "custom" blocks
 working-range: 0
 
+
+# The block materials tht make up the generator
+# Block Will be generated between these two blocks when placed in nether
+# List of materials can be found here -> https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+block-one: "HONEY_BLOCK"
+block-two: "SPONGE"
+
+# Delay in Server Ticks to wait before generating new block
+# default = 20
+tick-delay: 20
+
+
 # Default Tiers
 # Each tier must contain:
 #      min-level: island level (integer) | -1 will mean that this level will be the only level that will be applied. | First level will be always selected

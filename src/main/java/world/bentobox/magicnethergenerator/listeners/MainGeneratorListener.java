@@ -25,6 +25,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
+import world.bentobox.bentobox.BentoBox;
 import world.bentobox.magicnethergenerator.NetherGeneratorAddon;
 
 
@@ -42,6 +43,8 @@ public class MainGeneratorListener implements Listener {
      * Main addon class.
      */
     private NetherGeneratorAddon addon;
+
+
 
 
 
@@ -70,6 +73,8 @@ public class MainGeneratorListener implements Listener {
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
     public void onBlockPlaceEvent(BlockPlaceEvent event){
         Block eventSourceBlock = event.getBlock();
+        Material mat1 = Material.getMaterial(addon.getSettings().getMaterial1());
+        Material mat2 = Material.getMaterial(addon.getSettings().getMaterial2());
 
         // If not operating in nether, then return as fast as possible
         if (!this.addon.getManager().canOperateInWorld(eventSourceBlock.getWorld())){
@@ -94,7 +99,7 @@ public class MainGeneratorListener implements Listener {
 
         //If block is not honey or sponge, end
         Material blockType = eventSourceBlock.getType();
-        if (!blockType.equals(Material.HONEY_BLOCK) && !blockType.equals(Material.SPONGE)){
+        if (!blockType.equals(mat1) && !blockType.equals(mat2)){
             return;
         }
 
@@ -143,19 +148,21 @@ public class MainGeneratorListener implements Listener {
         if (!this.isInRangeToGenerate(eventSourceBlock)) {
             return;
         }
+        Plugin plugin = this.addon.getPlugin();
 
 
         if (checkForGenerator(eventSourceBlock)){
+            long delay = addon.getSettings().getSpawnDelay();
             event.setCancelled(true);
             eventSourceBlock.breakNaturally(player.getInventory().getItemInMainHand());
             // Give exp
             player.giveExp(((BlockBreakEvent)event).getExpToDrop());
             // Damage tool
             damageTool(player, eventSourceBlock);
-            generateBlock(eventSourceBlock);
+            //generateBlock(eventSourceBlock);
 
-            //TODO: add delay after block break before block creation
-            //Bukkit.getScheduler().runTaskLater(this.addon, () ->generateBlock(eventSourceBlock), 20);
+            //add delay after block break before block creation
+            Bukkit.getScheduler().runTaskLater(plugin, () ->generateBlock(eventSourceBlock), delay);
         }
         else return;
 
@@ -356,13 +363,15 @@ public class MainGeneratorListener implements Listener {
      */
 
     boolean checkForGenerator(Block block){
+        Material mat1 = Material.getMaterial(addon.getSettings().getMaterial1());
+        Material mat2 = Material.getMaterial(addon.getSettings().getMaterial2());
         BlockFace face = BlockFace.NORTH;
         int x = 0;
         do{
-            if (block.getRelative(face).getType().equals(Material.SPONGE) && block.getRelative(getInverseDirection(face)).getType().equals(Material.HONEY_BLOCK)){
+            if (block.getRelative(face).getType().equals(mat1) && block.getRelative(getInverseDirection(face)).getType().equals(mat2)){
                 return true;
             }
-            if (block.getRelative(face).getType().equals(Material.HONEY_BLOCK) && block.getRelative(getInverseDirection(face)).getType().equals(Material.SPONGE)){
+            if (block.getRelative(face).getType().equals(mat2) && block.getRelative(getInverseDirection(face)).getType().equals(mat1)){
                 return true;
             }
 
@@ -383,8 +392,10 @@ public class MainGeneratorListener implements Listener {
      * @param block Input block to find opposite for
      */
     private Material getOpposite (Block block){
-        if (block.getType().equals(Material.SPONGE)) return Material.HONEY_BLOCK;
-        else if (block.getType().equals(Material.HONEY_BLOCK)) return Material.SPONGE;
+        Material mat1 = Material.getMaterial(addon.getSettings().getMaterial1());
+        Material mat2 = Material.getMaterial(addon.getSettings().getMaterial2());
+        if (block.getType().equals(mat1)) return mat2;
+        else if (block.getType().equals(mat2)) return mat1;
         else return null; //if this ever gets triggered, something has gone wrong.
     }
 
