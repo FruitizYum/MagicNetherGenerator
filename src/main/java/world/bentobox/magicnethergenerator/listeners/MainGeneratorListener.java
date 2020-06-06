@@ -224,7 +224,7 @@ public class MainGeneratorListener implements Listener {
 
 
     /**
-     * This method detects if BlockPhysicsEvent can be used by Magic Nether Generator
+     * This method detects if BlockPistonRetractEvent can be used by Magic Nether Generator
      * by checking all requirements and calls custom generator if all requirements are met.
      *
      *
