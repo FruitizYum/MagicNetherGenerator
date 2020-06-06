@@ -33,6 +33,9 @@ The config.yml has the following sections:
 * **Disabled GameModes** - specify Game Modes where challenges will not work.
 * **Generator Tiers** - ability to specify default generator tiers
 * **GameMode Tiers** - ability to specify generator tiers for specific game mode.
+* **Configurable Blocks** - ability to specify which two block types are needed to create the generator.
+* **Configurable Delay** - ability to configure how long before spawning a new block in the generator.
+* **Configurable Automation** - ability to configure whether or not a piston removing the spawned block will allow the generator to keep spawning blocks.
 
 ## Information
 
