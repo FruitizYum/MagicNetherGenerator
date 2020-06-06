@@ -19,6 +19,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPhysicsEvent;
+import org.bukkit.event.block.BlockPistonRetractEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
 import org.bukkit.inventory.ItemStack;
@@ -162,6 +164,110 @@ public class MainGeneratorListener implements Listener {
             //generateBlock(eventSourceBlock);
 
             //add delay after block break before block creation
+            Bukkit.getScheduler().runTaskLater(plugin, () ->generateBlock(eventSourceBlock), delay);
+        }
+        else return;
+
+    }
+
+    /**
+     * This method detects if BlockPhysicsEvent can be used by Magic Nether Generator
+     * by checking all requirements and calls custom generator if all requirements are met.
+     *
+     *
+     * @param event BlockPhysicsEvent which may iterate the generator.
+     */
+    @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
+    public void onBlockPhysicsEvent(BlockPhysicsEvent event) {
+        Block eventSourceBlock = event.getBlock();
+
+        //If not enabled, return as fast as possible
+        if(!this.addon.getSettings().getPhysicsSpawn()){
+            return;
+        }
+
+        // If not operating in nether, then return
+        if (!this.addon.getManager().canOperateInWorld(eventSourceBlock.getWorld())) {
+            return;
+        }
+
+        // If island members are not online then do not continue
+        if (!this.addon.getManager().isMembersOnline(eventSourceBlock.getLocation())) {
+            return;
+        }
+
+        // If flag is off, return
+        if (addon.getIslands().getIslandAt(eventSourceBlock.getLocation())
+                .map(island -> !island.isAllowed(addon.getFlag())).orElse(!addon.getFlag().isSetForWorld(eventSourceBlock.getWorld()))) {
+            return;
+        }
+
+        //If players out of range, return
+        if (!this.isInRangeToGenerate(eventSourceBlock)) {
+            return;
+        }
+
+
+        Plugin plugin = this.addon.getPlugin();
+
+
+        if (checkForGenerator(eventSourceBlock)){
+            long delay = addon.getSettings().getSpawnDelay();
+
+            //add delay after block falling before block creation
+            Bukkit.getScheduler().runTaskLater(plugin, () ->generateBlock(eventSourceBlock), delay);
+        }
+        else return;
+
+    }
+
+
+
+    /**
+     * This method detects if BlockPhysicsEvent can be used by Magic Nether Generator
+     * by checking all requirements and calls custom generator if all requirements are met.
+     *
+     *
+     * @param event BlockPistonRetractEvent which may iterate the generator.
+     */
+    @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
+    public void onBlockPistonRetractEvent(BlockPistonRetractEvent event) {
+        Block eventSourceBlock = event.getBlock();
+
+        //If not enabled, return as fast as possible
+        if(!this.addon.getSettings().getPistonSpawn()){
+            return;
+        }
+
+        // If not operating in nether, then return
+        if (!this.addon.getManager().canOperateInWorld(eventSourceBlock.getWorld())) {
+            return;
+        }
+
+        // If island members are not online then do not continue
+        if (!this.addon.getManager().isMembersOnline(eventSourceBlock.getLocation())) {
+            return;
+        }
+
+        // If flag is off, return
+        if (addon.getIslands().getIslandAt(eventSourceBlock.getLocation())
+                .map(island -> !island.isAllowed(addon.getFlag())).orElse(!addon.getFlag().isSetForWorld(eventSourceBlock.getWorld()))) {
+            return;
+        }
+
+        //If players out of range, return
+        if (!this.isInRangeToGenerate(eventSourceBlock)) {
+            return;
+        }
+
+
+        Plugin plugin = this.addon.getPlugin();
+
+
+        if (checkForGenerator(eventSourceBlock)){
+            long delay = addon.getSettings().getSpawnDelay();
+
+            //add delay after block falling before block creation
             Bukkit.getScheduler().runTaskLater(plugin, () ->generateBlock(eventSourceBlock), delay);
         }
         else return;

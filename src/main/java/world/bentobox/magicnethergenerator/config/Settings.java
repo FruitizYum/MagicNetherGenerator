@@ -49,6 +49,10 @@ public class Settings
 
         this.spawnDelay = addon.getConfig().getLong("tick-delay" , 20);
 
+        this.genAfterPhysics = addon.getConfig().getBoolean("gen-after-physics", true);
+
+        this.genAfterPiston = addon.getConfig().getBoolean("automation", true);
+
         // Reads Generator Tiers
         if (addon.getConfig().isSet("tiers"))
         {
@@ -193,6 +197,20 @@ public class Settings
      * @return spawnDelay
      */
     public long getSpawnDelay() { return spawnDelay; }
+
+    /**
+     * returns if a block may be spawned after the old block falls
+     *
+     * @return genAfterPhysics
+     */
+    public boolean getPhysicsSpawn() { return genAfterPhysics; }
+
+    /**
+     * returns is a block may be spawned after the old block is pushed away by a piston
+     *
+     * @return spawnDelay
+     */
+    public boolean getPistonSpawn() { return genAfterPiston; }
 
     // ---------------------------------------------------------------------
     // Section: Private object
@@ -364,6 +382,18 @@ public class Settings
      */
 
     private long spawnDelay;
+
+    /**
+     * Boolean to stipulate if blocks are generated after physics event
+     */
+
+    private boolean genAfterPhysics;
+
+    /**
+     * Boolean to stipulate if blocks are generated after piston event
+     */
+
+    private boolean genAfterPiston;
 
 
 

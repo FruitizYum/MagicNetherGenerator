@@ -29,6 +29,17 @@ block-two: "SPONGE"
 tick-delay: 20
 
 
+# Generate new block after physics event eg: gravel falling
+# True/False | Default = True
+gen-after-physics: true
+
+# Allow for Blocks to generate after piston event
+# (Allows for generator automation)
+# True/False | Default = True
+
+automation: true
+
+
 # Default Tiers
 # Each tier must contain:
 #      min-level: island level (integer) | -1 will mean that this level will be the only level that will be applied. | First level will be always selected
